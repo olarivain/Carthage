@@ -32,6 +32,7 @@ private let outputQueue = { () -> dispatch_queue_t in
 internal func println() {
 	dispatch_async(outputQueue) {
 		Swift.println()
+		fflush(__stdoutp)
 	}
 }
 
@@ -39,6 +40,7 @@ internal func println() {
 internal func println<T>(object: T) {
 	dispatch_async(outputQueue) {
 		Swift.println(object)
+		fflush(__stdoutp)
 	}
 }
 
@@ -46,6 +48,7 @@ internal func println<T>(object: T) {
 internal func print<T>(object: T) {
 	dispatch_async(outputQueue) {
 		Swift.print(object)
+		fflush(__stdoutp)
 	}
 }
 
